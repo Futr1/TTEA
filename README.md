@@ -245,6 +245,7 @@ Our paper is currently under review. If you find this repository or our framewor
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/Futr1/TTEA}}
 }
+```
 
 ## License
 
