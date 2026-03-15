@@ -1,0 +1,179 @@
+{
+  "paper": "TTEA: A Self-Reinforcing Multi-Agent Approach for Large-Scale Complex Systems",
+  "task_group": "knowledge_enhancement",
+  "tables": [
+    {
+      "table_name": "Table 4 Task Performance Metrics",
+      "datasets": ["PubHealth", "ARC-Challenge", "ASQA", "SQuAD1"],
+      "metrics": ["Health_Acc", "ARC-C_Acc", "ASQA_Str_EM", "ASQA_R-L", "ASQA_Mauve", "SQuAD1_Acc"],
+      "results": [
+        {
+          "method": "Alpaca2 7B",
+          "scores": {
+            "Health_Acc": 44.78,
+            "ARC-C_Acc": 36.43,
+            "ASQA_Str_EM": 14.42,
+            "ASQA_R-L": 28.72,
+            "ASQA_Mauve": 51.24,
+            "SQuAD1_Acc": 11.5
+          }
+        },
+        {
+          "method": "Mistral-Instruct 7B",
+          "scores": {
+            "Health_Acc": 65.45,
+            "ARC-C_Acc": 57.84,
+            "ASQA_Str_EM": 20.8,
+            "ASQA_R-L": 32.2,
+            "ASQA_Mauve": 33.47,
+            "SQuAD1_Acc": 14.97
+          }
+        },
+        {
+          "method": "Llama-2-Chat 7B",
+          "scores": {
+            "Health_Acc": 47.95,
+            "ARC-C_Acc": 47.95,
+            "ASQA_Str_EM": 16.79,
+            "ASQA_R-L": 32.35,
+            "ASQA_Mauve": 24.21,
+            "SQuAD1_Acc": 14.13
+          }
+        },
+        {
+          "method": "Vicuna-v1.5 13B",
+          "scores": {
+            "Health_Acc": 63.01,
+            "ARC-C_Acc": 57.59,
+            "ASQA_Str_EM": 31.95,
+            "ASQA_R-L": 22.99,
+            "ASQA_Mauve": 68.41,
+            "SQuAD1_Acc": 15.25
+          }
+        },
+        {
+          "method": "Llama-2-Chat 13B",
+          "scores": {
+            "Health_Acc": 62.2,
+            "ARC-C_Acc": 48.72,
+            "ASQA_Str_EM": 19.97,
+            "ASQA_R-L": 30.37,
+            "ASQA_Mauve": 40.23,
+            "SQuAD1_Acc": 15.97
+          }
+        },
+        {
+          "method": "Chat-GPT",
+          "scores": {
+            "Health_Acc": 76.08,
+            "ARC-C_Acc": 77.3,
+            "ASQA_Str_EM": 39.94,
+            "ASQA_R-L": 35.73,
+            "ASQA_Mauve": 44.63,
+            "SQuAD1_Acc": 22.9
+          }
+        },
+        {
+          "method": "Alpaca2 7B",
+          "variant": "retrieval-augmented baseline",
+          "scores": {
+            "Health_Acc": 26.44,
+            "ARC-C_Acc": 35.15,
+            "ASQA_Str_EM": 23.59,
+            "ASQA_R-L": 27.21,
+            "ASQA_Mauve": 50.09,
+            "SQuAD1_Acc": 21.41
+          }
+        },
+        {
+          "method": "REPLUG 7B",
+          "scores": {
+            "Health_Acc": 41.72,
+            "ARC-C_Acc": 47.26,
+            "ASQA_Str_EM": 26.54,
+            "ASQA_R-L": 33.25,
+            "ASQA_Mauve": 54.03,
+            "SQuAD1_Acc": 24.23
+          }
+        },
+        {
+          "method": "VANILLA 7B",
+          "scores": {
+            "Health_Acc": 29.52,
+            "ARC-C_Acc": 42.74,
+            "ASQA_Str_EM": 32.25,
+            "ASQA_R-L": 34.93,
+            "ASQA_Mauve": 39.54,
+            "SQuAD1_Acc": 25.92
+          }
+        },
+        {
+          "method": "RAIT 7B",
+          "scores": {
+            "Health_Acc": 52.98,
+            "ARC-C_Acc": 62.1,
+            "ASQA_Str_EM": 25.68,
+            "ASQA_R-L": 15.99,
+            "ASQA_Mauve": 12.35,
+            "SQuAD1_Acc": 23.86
+          }
+        },
+        {
+          "method": "INTERACT 7B",
+          "scores": {
+            "Health_Acc": 65.45,
+            "ARC-C_Acc": 48.12,
+            "ASQA_Str_EM": 34.54,
+            "ASQA_R-L": 35.51,
+            "ASQA_Mauve": 43.45,
+            "SQuAD1_Acc": 31.52
+          }
+        },
+        {
+          "method": "SelfRAG 7B",
+          "scores": {
+            "Health_Acc": 68.99,
+            "ARC-C_Acc": 65.52,
+            "ASQA_Str_EM": 28.68,
+            "ASQA_R-L": 34.11,
+            "ASQA_Mauve": 83.0,
+            "SQuAD1_Acc": 22.39
+          }
+        },
+        {
+          "method": "MMAAgent 3x7B",
+          "scores": {
+            "Health_Acc": 70.82,
+            "ARC-C_Acc": 63.99,
+            "ASQA_Str_EM": 33.04,
+            "ASQA_R-L": 36.49,
+            "ASQA_Mauve": 88.98,
+            "SQuAD1_Acc": 23.79
+          }
+        },
+        {
+          "method": "SMART",
+          "scores": {
+            "Health_Acc": 73.18,
+            "ARC-C_Acc": 65.58,
+            "ASQA_Str_EM": 41.16,
+            "ASQA_R-L": 40.66,
+            "ASQA_Mauve": 88.98,
+            "SQuAD1_Acc": 27.8
+          }
+        },
+        {
+          "method": "TTEA",
+          "scores": {
+            "Health_Acc": 77.35,
+            "ARC-C_Acc": 80.09,
+            "ASQA_Str_EM": 46.85,
+            "ASQA_R-L": 46.21,
+            "ASQA_Mauve": 90.23,
+            "SQuAD1_Acc": 29.14
+          }
+        }
+      ]
+    }
+  ]
+}

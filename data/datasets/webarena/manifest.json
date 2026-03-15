@@ -1,0 +1,8 @@
+{
+  "name": "WebArena",
+  "task_group": "web_navigation",
+  "local_path": "data/datasets/webarena",
+  "expected_files": ["tasks.json", "tasks.jsonl"],
+  "acquisition_url": "https://github.com/web-arena-x/webarena",
+  "notes": "Place exported benchmark tasks in this directory."
+}

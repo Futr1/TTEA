@@ -1,0 +1,15 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+runs/*
+!runs/.gitkeep
+artifacts/*
+!artifacts/cache/
+artifacts/cache/*
+!artifacts/cache/.gitkeep

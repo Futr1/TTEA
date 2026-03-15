@@ -1,0 +1,102 @@
+{
+  "paper": "TTEA: A Self-Reinforcing Multi-Agent Approach for Large-Scale Complex Systems",
+  "task_group": "web_navigation",
+  "tables": [
+    {
+      "table_name": "Table 1 Performance comparison in WebArena",
+      "dataset": "WebArena",
+      "metric": "success_rate",
+      "metric_unit": "percentage",
+      "domains": ["CMS", "Map", "Shop", "red", "Git", "Avg"],
+      "results": [
+        {
+          "method": "WebArena",
+          "scores": {
+            "CMS": null,
+            "Map": null,
+            "Shop": null,
+            "red": null,
+            "Git": null,
+            "Avg": 13.1
+          }
+        },
+        {
+          "method": "SteP",
+          "scores": {
+            "CMS": 24.2,
+            "Map": 30.3,
+            "Shop": 36.9,
+            "red": 59.4,
+            "Git": 31.7,
+            "Avg": 33.5
+          }
+        },
+        {
+          "method": "LM-TS",
+          "scores": {
+            "CMS": 16.5,
+            "Map": 25.8,
+            "Shop": 28.1,
+            "red": 10.5,
+            "Git": 13.3,
+            "Avg": 19.2
+          }
+        },
+        {
+          "method": "WebPilot",
+          "scores": {
+            "CMS": 24.7,
+            "Map": 33.9,
+            "Shop": 36.9,
+            "red": 65.1,
+            "Git": 39.4,
+            "Avg": 37.2
+          }
+        },
+        {
+          "method": "TTEA",
+          "scores": {
+            "CMS": 23.4,
+            "Map": 39.6,
+            "Shop": 37.5,
+            "red": 64.1,
+            "Git": 43.7,
+            "Avg": 41.7
+          }
+        }
+      ]
+    },
+    {
+      "table_name": "Table 2 Task Performance in MiniWoB++",
+      "dataset": "MiniWoB++",
+      "metric": "success_rate",
+      "metric_unit": "percentage",
+      "results": [
+        {
+          "method": "RCI",
+          "score": 94.0
+        },
+        {
+          "method": "AdaPlanner",
+          "score": 92.9
+        },
+        {
+          "method": "A zero-shot",
+          "score": 94.9
+        },
+        {
+          "method": "SteP",
+          "score": 96.0
+        },
+        {
+          "method": "WebPilot",
+          "score": 95.6
+        },
+        {
+          "method": "TTEA",
+          "score": 95.5
+        }
+      ]
+    }
+  ]
+}

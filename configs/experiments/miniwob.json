@@ -1,0 +1,58 @@
+{
+  "name": "miniwob",
+  "task_group": "web_navigation",
+  "dataset": "MiniWoB++",
+  "dataset_path": "data/datasets/miniwobpp",
+  "metrics": ["success_rate", "resource_usage"],
+  "runtime": {
+    "max_steps": 16,
+    "resource_budget": 60.0,
+    "decomposition_depth": 2
+  },
+  "environment": {
+    "enabled": true,
+    "provider": "miniwob",
+    "browser_name": "chromium",
+    "headless": true,
+    "base_url": "",
+    "env_id": "browsergym/miniwob.click-test-v0",
+    "task_timeout_ms": 30000,
+    "action_delay_ms": 200,
+    "observation_max_chars": 3000,
+    "viewport_width": 1280,
+    "viewport_height": 800,
+    "success_reward": 1.0
+  },
+  "training": {
+    "enabled": false,
+    "task_type": "text_generation",
+    "train_split": "train",
+    "eval_split": "dev",
+    "output_subdir": "training/miniwob",
+    "per_device_train_batch_size": 2,
+    "per_device_eval_batch_size": 2,
+    "learning_rate": 2e-5,
+    "weight_decay": 0.01,
+    "num_train_epochs": 1.0,
+    "warmup_ratio": 0.05,
+    "gradient_accumulation_steps": 2,
+    "logging_steps": 10,
+    "save_steps": 100,
+    "max_train_samples": 128,
+    "max_eval_samples": 64,
+    "fp16": false,
+    "bf16": false
+  },
+  "persistence": {
+    "enabled": true,
+    "save_predictions": true,
+    "save_task_traces": true,
+    "save_metrics": true,
+    "save_checkpoints": true,
+    "save_training_history": true,
+    "output_subdir": "experiments/miniwob"
+  },
+  "paper_targets": {
+    "success_rate": 95.5
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "MiniWoB++",
+  "task_group": "web_navigation",
+  "local_path": "data/datasets/miniwobpp",
+  "expected_files": ["tasks.json", "tasks.jsonl"],
+  "acquisition_url": "https://miniwob.farama.org/",
+  "notes": "Store the task metadata or converted task suite here."
+}

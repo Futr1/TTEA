@@ -1,0 +1,44 @@
+{
+  "name": "squad",
+  "task_group": "knowledge_enhancement",
+  "dataset": "SQuAD",
+  "dataset_path": "data/datasets/squad",
+  "metrics": ["exact_match", "f1", "resource_usage"],
+  "runtime": {
+    "max_steps": 10,
+    "resource_budget": 55.0,
+    "decomposition_depth": 2
+  },
+  "training": {
+    "enabled": true,
+    "task_type": "extractive_qa",
+    "train_split": "train",
+    "eval_split": "dev",
+    "output_subdir": "training/squad",
+    "per_device_train_batch_size": 8,
+    "per_device_eval_batch_size": 8,
+    "learning_rate": 2e-5,
+    "weight_decay": 0.01,
+    "num_train_epochs": 2.0,
+    "warmup_ratio": 0.05,
+    "gradient_accumulation_steps": 1,
+    "logging_steps": 20,
+    "save_steps": 200,
+    "max_train_samples": 4000,
+    "max_eval_samples": 500,
+    "fp16": false,
+    "bf16": false
+  },
+  "persistence": {
+    "enabled": true,
+    "save_predictions": true,
+    "save_task_traces": true,
+    "save_metrics": true,
+    "save_checkpoints": true,
+    "save_training_history": true,
+    "output_subdir": "experiments/squad"
+  },
+  "paper_targets": {
+    "exact_match": 29.14
+  }
+}

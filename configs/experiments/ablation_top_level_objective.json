@@ -1,0 +1,23 @@
+{
+  "name": "ablation_top_level_objective",
+  "task_group": "web_navigation",
+  "dataset": "WebArena",
+  "dataset_path": "data/datasets/webarena",
+  "metrics": ["success_rate", "resource_usage"],
+  "runtime": {
+    "max_steps": 48,
+    "resource_budget": 100.0,
+    "decomposition_depth": 3
+  },
+  "module_switches": {
+    "top_level_objective": false,
+    "evolution": true,
+    "communication": true
+  },
+  "paper_targets": {
+    "avg_sr": 27.31,
+    "resource_usage": 65.34,
+    "bleu": 59.78,
+    "arc_c": 62.67
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "ASQA",
+  "task_group": "knowledge_enhancement",
+  "local_path": "data/datasets/asqa",
+  "expected_files": ["train.json", "dev.json", "test.json"],
+  "acquisition_url": "https://github.com/google-research/language/tree/master/language/asqa",
+  "notes": "Store ambiguity-sensitive QA records and long-form references in this directory."
+}

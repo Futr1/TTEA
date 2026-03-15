@@ -1,0 +1,46 @@
+{
+  "name": "asqa",
+  "task_group": "knowledge_enhancement",
+  "dataset": "ASQA",
+  "dataset_path": "data/datasets/asqa",
+  "metrics": ["string_exact_match", "rouge_l", "mauve", "resource_usage"],
+  "runtime": {
+    "max_steps": 14,
+    "resource_budget": 75.0,
+    "decomposition_depth": 3
+  },
+  "training": {
+    "enabled": true,
+    "task_type": "long_form_generation",
+    "train_split": "train",
+    "eval_split": "dev",
+    "output_subdir": "training/asqa",
+    "per_device_train_batch_size": 2,
+    "per_device_eval_batch_size": 2,
+    "learning_rate": 2e-5,
+    "weight_decay": 0.01,
+    "num_train_epochs": 2.0,
+    "warmup_ratio": 0.05,
+    "gradient_accumulation_steps": 4,
+    "logging_steps": 20,
+    "save_steps": 200,
+    "max_train_samples": 2000,
+    "max_eval_samples": 200,
+    "fp16": false,
+    "bf16": false
+  },
+  "persistence": {
+    "enabled": true,
+    "save_predictions": true,
+    "save_task_traces": true,
+    "save_metrics": true,
+    "save_checkpoints": true,
+    "save_training_history": true,
+    "output_subdir": "experiments/asqa"
+  },
+  "paper_targets": {
+    "string_exact_match": 46.85,
+    "rouge_l": 46.21,
+    "mauve": 90.23
+  }
+}

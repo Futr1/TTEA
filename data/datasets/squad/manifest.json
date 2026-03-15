@@ -1,0 +1,8 @@
+{
+  "name": "SQuAD",
+  "task_group": "knowledge_enhancement",
+  "local_path": "data/datasets/squad",
+  "expected_files": ["train.json", "dev.json", "test.json"],
+  "acquisition_url": "https://rajpurkar.github.io/SQuAD-explorer/",
+  "notes": "Flatten the official structure into records during preprocessing if needed."
+}

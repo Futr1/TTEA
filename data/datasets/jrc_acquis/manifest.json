@@ -1,0 +1,18 @@
+{
+  "name": "JRC-Acquis",
+  "task_group": "translation",
+  "local_path": "data/datasets/jrc_acquis",
+  "expected_files": [
+    "train.en",
+    "train.de",
+    "train.es",
+    "dev.en",
+    "dev.de",
+    "dev.es",
+    "test.en",
+    "test.de",
+    "test.es"
+  ],
+  "acquisition_url": "https://opus.nlpl.eu/JRC-Acquis.php",
+  "notes": "Aligned bilingual files for the four translation directions should be placed here."
+}

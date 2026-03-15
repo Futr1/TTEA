@@ -1,0 +1,8 @@
+{
+  "name": "PubHealth",
+  "task_group": "knowledge_enhancement",
+  "local_path": "data/datasets/pubhealth",
+  "expected_files": ["train.jsonl", "dev.jsonl", "test.jsonl"],
+  "acquisition_url": "https://huggingface.co/datasets/health_fact",
+  "notes": "Keep the evidence-rich fact checking records in JSONL format."
+}

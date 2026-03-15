@@ -1,0 +1,240 @@
+{
+  "project_name": "ttea-platform",
+  "paths": {
+    "data_root": "data/datasets",
+    "config_root": "configs",
+    "output_root": "runs",
+    "cache_root": "artifacts/cache"
+  },
+  "objective": {
+    "alpha": 12.0,
+    "beta": 8.0,
+    "delta": 9.0,
+    "gamma": 1.0,
+    "stability_floor": 0.35,
+    "resource_budget": 100.0
+  },
+  "assessment": {
+    "feature_names": [
+      "task_priority",
+      "task_complexity",
+      "system_load",
+      "resource_pressure",
+      "skill_match",
+      "backlog_depth",
+      "collaboration_need",
+      "blocked_ratio"
+    ],
+    "prediction_bias": {
+      "stability": 0.0,
+      "efficiency": 0.0,
+      "resource": 0.0
+    },
+    "decision_penalties": {
+      "reject": 0.45,
+      "assist": 0.10,
+      "learn": 0.20
+    }
+  },
+  "evolution": {
+    "skill_learning_rate": 0.08,
+    "system_gain": 1.75,
+    "skill_decay": 0.015,
+    "decay_window": 3,
+    "elimination_threshold": -5.0,
+    "survival_reward": 1.2,
+    "max_learning_attempts": 3
+  },
+  "communication": {
+    "encoder_dim": 16,
+    "macro_scale": 0.30,
+    "micro_scale": 0.45,
+    "text_precision": 4,
+    "memory_window": 12,
+    "feature_grid_size": 4,
+    "confidence_threshold": 0.35,
+    "gaussian_smooth": true,
+    "gaussian_kernel_size": 3,
+    "gaussian_sigma": 1.0,
+    "prompt_downsample_ratio": 4,
+    "prompt_dropout": 0.1,
+    "prompt_bias": true,
+    "fusion_mode": "attention",
+    "fusion_heads": 4,
+    "fusion_dropout": 0.0
+  },
+  "dispatch": {
+    "max_decomposition_depth": 3,
+    "max_team_size": 3,
+    "blocked_retry_limit": 2,
+    "rebalance_interval": 1
+  },
+  "models": {
+    "provider": "transformers",
+    "model_name_or_path": "google/flan-t5-base",
+    "tokenizer_name_or_path": "google/flan-t5-base",
+    "device": "cpu",
+    "dtype": "float32",
+    "hidden_size": 32,
+    "max_prompt_tokens": 256,
+    "local_files_only": true,
+    "trust_remote_code": false,
+    "use_langchain": true,
+    "use_transformers": true,
+    "use_torch": true,
+    "generation": {
+      "temperature": 0.2,
+      "top_p": 0.9,
+      "max_new_tokens": 96
+    }
+  },
+  "task_groups": {
+    "web_navigation": {
+      "categories": [
+        {
+          "name": "navigation",
+          "leader_id": "leader_navigation",
+          "agents": [
+            {
+              "agent_id": "nav_specialist",
+              "role": "specialist",
+              "skills": {
+                "navigation": 0.90,
+                "planning": 0.78,
+                "tool_use": 0.82
+              }
+            },
+            {
+              "agent_id": "nav_generalist",
+              "role": "generalist",
+              "skills": {
+                "navigation": 0.74,
+                "planning": 0.72,
+                "observation": 0.76
+              }
+            }
+          ]
+        },
+        {
+          "name": "verification",
+          "leader_id": "leader_verification",
+          "agents": [
+            {
+              "agent_id": "verifier_ui",
+              "role": "specialist",
+              "skills": {
+                "verification": 0.88,
+                "observation": 0.85,
+                "consistency": 0.80
+              }
+            },
+            {
+              "agent_id": "verifier_generalist",
+              "role": "generalist",
+              "skills": {
+                "verification": 0.73,
+                "coordination": 0.77,
+                "fallback": 0.71
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "translation": {
+      "categories": [
+        {
+          "name": "translation",
+          "leader_id": "leader_translation",
+          "agents": [
+            {
+              "agent_id": "translator_bilingual",
+              "role": "specialist",
+              "skills": {
+                "translation": 0.92,
+                "terminology": 0.86,
+                "alignment": 0.84
+              }
+            },
+            {
+              "agent_id": "translator_generalist",
+              "role": "generalist",
+              "skills": {
+                "translation": 0.79,
+                "editing": 0.74,
+                "planning": 0.68
+              }
+            }
+          ]
+        },
+        {
+          "name": "quality_assurance",
+          "leader_id": "leader_qa",
+          "agents": [
+            {
+              "agent_id": "qa_fluency",
+              "role": "specialist",
+              "skills": {
+                "fluency": 0.87,
+                "consistency": 0.85,
+                "verification": 0.82
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "knowledge_enhancement": {
+      "categories": [
+        {
+          "name": "retrieval",
+          "leader_id": "leader_retrieval",
+          "agents": [
+            {
+              "agent_id": "retriever_dense",
+              "role": "specialist",
+              "skills": {
+                "retrieval": 0.90,
+                "ranking": 0.83,
+                "evidence": 0.80
+              }
+            },
+            {
+              "agent_id": "retriever_generalist",
+              "role": "generalist",
+              "skills": {
+                "retrieval": 0.76,
+                "observation": 0.73,
+                "coordination": 0.72
+              }
+            }
+          ]
+        },
+        {
+          "name": "reasoning",
+          "leader_id": "leader_reasoning",
+          "agents": [
+            {
+              "agent_id": "reasoner_chain",
+              "role": "specialist",
+              "skills": {
+                "reasoning": 0.89,
+                "synthesis": 0.82,
+                "verification": 0.78
+              }
+            },
+            {
+              "agent_id": "reasoner_generalist",
+              "role": "generalist",
+              "skills": {
+                "reasoning": 0.77,
+                "editing": 0.71,
+                "planning": 0.75
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

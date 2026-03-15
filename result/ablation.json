@@ -1,0 +1,48 @@
+{
+  "paper": "TTEA: A Self-Reinforcing Multi-Agent Approach for Large-Scale Complex Systems",
+  "task_group": "ablation",
+  "tables": [
+    {
+      "table_name": "Table 5 Ablation Study Summary on Training",
+      "metrics": ["WebArena_Avg_SR", "Resource_Usage", "BLEU", "ARC-C"],
+      "results": [
+        {
+          "variant": "Full Architecture",
+          "scores": {
+            "WebArena_Avg_SR": 41.66,
+            "Resource_Usage": 65.13,
+            "BLEU": 62.54,
+            "ARC-C": 80.09
+          }
+        },
+        {
+          "variant": "Top-level Objective removed",
+          "scores": {
+            "WebArena_Avg_SR": 27.31,
+            "Resource_Usage": 65.34,
+            "BLEU": 59.78,
+            "ARC-C": 62.67
+          }
+        },
+        {
+          "variant": "Element Evolution Mechanism removed",
+          "scores": {
+            "WebArena_Avg_SR": 29.36,
+            "Resource_Usage": 78.95,
+            "BLEU": 58.31,
+            "ARC-C": 67.42
+          }
+        },
+        {
+          "variant": "Cross-level Knowledge Synergy removed",
+          "scores": {
+            "WebArena_Avg_SR": 28.64,
+            "Resource_Usage": 67.41,
+            "BLEU": 50.56,
+            "ARC-C": 60.38
+          }
+        }
+      ]
+    }
+  ]
+}

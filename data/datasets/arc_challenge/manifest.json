@@ -1,0 +1,8 @@
+{
+  "name": "ARC-Challenge",
+  "task_group": "knowledge_enhancement",
+  "local_path": "data/datasets/arc_challenge",
+  "expected_files": ["train.jsonl", "dev.jsonl", "test.jsonl"],
+  "acquisition_url": "https://allenai.org/data/arc",
+  "notes": "Use the challenge split and keep answer options with each record."
+}

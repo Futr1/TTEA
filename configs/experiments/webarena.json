@@ -1,0 +1,63 @@
+{
+  "name": "webarena",
+  "task_group": "web_navigation",
+  "dataset": "WebArena",
+  "dataset_path": "data/datasets/webarena",
+  "metrics": ["success_rate", "resource_usage"],
+  "runtime": {
+    "max_steps": 48,
+    "resource_budget": 100.0,
+    "decomposition_depth": 3
+  },
+  "environment": {
+    "enabled": true,
+    "provider": "webarena",
+    "browser_name": "chromium",
+    "headless": true,
+    "base_url": "http://127.0.0.1:3000",
+    "env_id": "",
+    "task_timeout_ms": 60000,
+    "action_delay_ms": 800,
+    "observation_max_chars": 5000,
+    "viewport_width": 1440,
+    "viewport_height": 900,
+    "success_reward": 1.0
+  },
+  "training": {
+    "enabled": false,
+    "task_type": "text_generation",
+    "train_split": "train",
+    "eval_split": "dev",
+    "output_subdir": "training/webarena",
+    "per_device_train_batch_size": 1,
+    "per_device_eval_batch_size": 1,
+    "learning_rate": 2e-5,
+    "weight_decay": 0.01,
+    "num_train_epochs": 1.0,
+    "warmup_ratio": 0.05,
+    "gradient_accumulation_steps": 4,
+    "logging_steps": 10,
+    "save_steps": 100,
+    "max_train_samples": 128,
+    "max_eval_samples": 64,
+    "fp16": false,
+    "bf16": false
+  },
+  "persistence": {
+    "enabled": true,
+    "save_predictions": true,
+    "save_task_traces": true,
+    "save_metrics": true,
+    "save_checkpoints": true,
+    "save_training_history": true,
+    "output_subdir": "experiments/webarena"
+  },
+  "paper_targets": {
+    "cms": 23.4,
+    "map": 39.6,
+    "shop": 37.5,
+    "red": 64.1,
+    "git": 43.7,
+    "avg": 41.7
+  }
+}
