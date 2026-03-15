@@ -231,7 +231,7 @@ Each run is saved under `runs/` and can include:
 
 
 ## Citation
-
+```bibtex
 @misc{Fu2026ttea,
   author = {Fu, Yuanshuang},
   title = {TTEA: A Self-Reinforcing Multi-Agent Approach for Large-Scale Complex Systems},
