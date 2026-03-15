@@ -155,11 +155,7 @@ ttea run-experiment --experiment configs/experiments/webarena.json --split test
 ttea run-experiment --experiment configs/experiments/miniwob.json --split test
 ```
 
-### 5. Sanity-check the full pipeline without local datasets
 
-```bash
-ttea run-experiment --experiment configs/experiments/asqa.json --limit 2 --allow-placeholder
-```
 
 ## Main Reproduction Configurations
 
@@ -195,24 +191,7 @@ The following files reproduce the main ablation settings in the paper:
 - `configs/experiments/ablation_evolution.json`
 - `configs/experiments/ablation_communication.json`
 
-## Main Code Path
 
-The main execution path of this repository is:
-
-1. `src/ttea/cli.py` parses the command and loads platform + experiment configs.
-2. `src/ttea/experiments/runners.py` builds the dataset loader, task adapter, evaluator, and artifact store.
-3. `src/ttea/runtime.py` and related agent/topology modules initialize the TTEA system.
-4. `src/ttea/execution/engine.py` prepares assignments, triggers communication, executes text/web tasks, and records traces.
-5. `src/ttea/evaluation/benchmarks.py` computes task-group-specific metrics.
-6. `src/ttea/persistence/results.py` and `src/ttea/persistence/checkpoints.py` save metrics, predictions, traces, and checkpoints.
-
-For the communication-enhanced system path, the most important modules are:
-
-- `src/ttea/core/communication.py`
-- `src/ttea/core/objective.py`
-- `src/ttea/core/assessment.py`
-- `src/ttea/evolution/operators.py`
-- `src/ttea/dispatch/planner.py`
 
 ## Paper Target Results
 
