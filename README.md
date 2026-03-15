@@ -232,20 +232,7 @@ Each run is saved under `runs/` and can include:
 
 ## Citation
 
-Our paper is currently under review. If you find this repository or our framework useful in your research, please consider citing it. The BibTeX entry will be updated with the official conference proceedings once the paper is accepted and published.
 
-**For now, please cite this repository:**
-
-```bibtex
-@misc{Fu2026ttea,
-  author = {Fu, Yuanshuang},
-  title = {TTEA: A Self-Reinforcing Multi-Agent Approach for Large-Scale Complex Systems},
-  year = {2026},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/Futr1/TTEA}}
-}
-```
 
 ## License
 
