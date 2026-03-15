@@ -2,8 +2,8 @@
 
 <div align="center">
   
-![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=PyTorch&logoColor=white)
-![Transformers](https://img.shields.io/badge/Transformers-f37b21?style=flat&logo=huggingface&logoColor=white)
+[![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=PyTorch&logoColor=white)](https://pytorch.org/)
+[![Transformers](https://img.shields.io/badge/Transformers-f37b21?style=flat&logo=huggingface&logoColor=white)](https://huggingface.co/docs/transformers/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 </div>
