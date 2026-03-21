@@ -1,6 +1,6 @@
 # Dataset layout
 
-All dataset folders live under [data/datasets](d:\文件\论文\第二篇论文-etta多智能体\code\data\datasets). Each dataset directory already contains a `manifest.json` file with:
+All dataset folders live under `data/datasets`. Each dataset directory already contains a `manifest.json` file with:
 
 - dataset name
 - task group
@@ -14,22 +14,24 @@ If a dataset is not available on the machine yet, keep the directory in place an
 
 Expected directories:
 
-- [data/datasets/webarena](d:\文件\论文\第二篇论文-etta多智能体\code\data\datasets\webarena)
-- [data/datasets/miniwobpp](d:\文件\论文\第二篇论文-etta多智能体\code\data\datasets\miniwobpp)
-- [data/datasets/jrc_acquis](d:\文件\论文\第二篇论文-etta多智能体\code\data\datasets\jrc_acquis)
-- [data/datasets/pubhealth](d:\文件\论文\第二篇论文-etta多智能体\code\data\datasets\pubhealth)
-- [data/datasets/arc_challenge](d:\文件\论文\第二篇论文-etta多智能体\code\data\datasets\arc_challenge)
-- [data/datasets/squad](d:\文件\论文\第二篇论文-etta多智能体\code\data\datasets\squad)
-- [data/datasets/asqa](d:\文件\论文\第二篇论文-etta多智能体\code\data\datasets\asqa)
+- `data/datasets/webarena`
+- `data/datasets/miniwobpp`
+- `data/datasets/swebench_lite`
+- `data/datasets/jrc_acquis`
+- `data/datasets/pubhealth`
+- `data/datasets/arc_challenge`
+- `data/datasets/squad`
+- `data/datasets/asqa`
 
 ## Suggested acquisition sources
 
-- `WebArena`: official benchmark repository and released task files
-- `MiniWoB++`: official benchmark repository or mirrored task suites
-- `JRC-Acquis`: official multilingual aligned corpus distribution
-- `PubHealth`: public benchmark release
-- `ARC-Challenge`: AI2 dataset release
-- `SQuAD`: official SQuAD release
-- `ASQA`: official project release
+- `WebArena`: <https://github.com/web-arena-x/webarena>
+- `MiniWoB++`: <https://miniwob.farama.org/>
+- `SWE-bench Lite`: <https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite>
+- `JRC-Acquis`: <https://opus.nlpl.eu/JRC-Acquis.php>
+- `PubHealth`: <https://huggingface.co/datasets/health_fact>
+- `ARC-Challenge`: <https://allenai.org/data/arc>
+- `SQuAD`: <https://rajpurkar.github.io/SQuAD-explorer/>
+- `ASQA`: <https://github.com/google-research/language/tree/master/language/asqa>
 
 The exact URLs are embedded in each manifest so the CLI can surface them later.

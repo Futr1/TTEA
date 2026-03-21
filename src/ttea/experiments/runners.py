@@ -10,7 +10,7 @@ from ..exceptions import TrainingError
 from ..execution import TaskExecutionEngine
 from ..persistence import ExperimentArtifactStore
 from ..runtime import TTEASystem
-from ..tasks import KnowledgeTaskAdapter, TranslationTaskAdapter, WebNavigationTaskAdapter
+from ..tasks import KnowledgeTaskAdapter, SoftwareEngineeringTaskAdapter, TranslationTaskAdapter, WebNavigationTaskAdapter
 from ..training import HFTrainingService
 from ..types import TaskGroup
 
@@ -33,6 +33,8 @@ class BaseExperimentRunner:
     def _select_adapter(self):
         if self.experiment_config.task_group == TaskGroup.WEB_NAVIGATION:
             return WebNavigationTaskAdapter()
+        if self.experiment_config.task_group == TaskGroup.SOFTWARE_ENGINEERING:
+            return SoftwareEngineeringTaskAdapter()
         if self.experiment_config.task_group == TaskGroup.TRANSLATION:
             return TranslationTaskAdapter()
         return KnowledgeTaskAdapter()
@@ -256,6 +258,17 @@ class TranslationRunner(BaseExperimentRunner):
         }
 
 
+class SoftwareEngineeringRunner(BaseExperimentRunner):
+    def group_specific_plan(self) -> dict[str, object]:
+        return {
+            "execution_profile": {
+                "environment_type": "repository_issue_records",
+                "coordination_focus": ["development", "review", "testing"],
+                "artifact_targets": ["patch_plan", "review_notes", "test_feedback"],
+            }
+        }
+
+
 class KnowledgeRunner(BaseExperimentRunner):
     def group_specific_plan(self) -> dict[str, object]:
         return {
@@ -271,6 +284,8 @@ def build_runner(platform_config: PlatformConfig, experiment_config: ExperimentC
     registry = DatasetRegistry(platform_config.paths.data_root, platform_config.root_dir)
     if experiment_config.task_group == TaskGroup.WEB_NAVIGATION:
         return WebNavigationRunner(platform_config, experiment_config, registry)
+    if experiment_config.task_group == TaskGroup.SOFTWARE_ENGINEERING:
+        return SoftwareEngineeringRunner(platform_config, experiment_config, registry)
     if experiment_config.task_group == TaskGroup.TRANSLATION:
         return TranslationRunner(platform_config, experiment_config, registry)
     return KnowledgeRunner(platform_config, experiment_config, registry)

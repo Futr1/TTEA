@@ -7,6 +7,7 @@ from typing import Any
 
 class TaskGroup(str, Enum):
     WEB_NAVIGATION = "web_navigation"
+    SOFTWARE_ENGINEERING = "software_engineering"
     TRANSLATION = "translation"
     KNOWLEDGE_ENHANCEMENT = "knowledge_enhancement"
 

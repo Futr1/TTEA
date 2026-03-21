@@ -4,7 +4,10 @@ import importlib
 
 
 def has_dependency(module_name: str) -> bool:
-    return importlib.util.find_spec(module_name) is not None
+    try:
+        return importlib.util.find_spec(module_name) is not None
+    except ModuleNotFoundError:
+        return False
 
 
 def import_torch():

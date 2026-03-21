@@ -39,3 +39,30 @@ def test_benchmark_evaluator_supports_squad_exact_match_and_f1() -> None:
     metrics = evaluator.evaluate(tasks, results, budget=10.0)
     assert metrics["exact_match"] == 100.0
     assert metrics["f1"] == 100.0
+
+
+def test_benchmark_evaluator_supports_issue_resolution_rate() -> None:
+    experiment = load_experiment_config("configs/experiments/swebench_lite.json")
+    evaluator = BenchmarkEvaluator(experiment)
+    tasks = [
+        TaskSpec(
+            task_id="swebench-1",
+            title="fix bug",
+            description="fix bug",
+            group=TaskGroup.SOFTWARE_ENGINEERING,
+            dataset_name="SWE-bench Lite",
+            capability_tags=["development", "review", "testing"],
+            metadata={"reference_text": "resolved", "reference_answers": ["resolved"]},
+        )
+    ]
+    results = [
+        TaskExecutionResult(
+            success=True,
+            response="patch plan",
+            used_skills=[],
+            reward=0.0,
+            resource_spent=0.1,
+        )
+    ]
+    metrics = evaluator.evaluate(tasks, results, budget=10.0)
+    assert metrics["issue_resolution_rate"] == 100.0

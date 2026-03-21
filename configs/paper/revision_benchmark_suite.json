@@ -1,0 +1,210 @@
+{
+  "paper_revision": "2026-03-18",
+  "main_scope": {
+    "task_groups": [
+      "web_navigation",
+      "software_engineering",
+      "knowledge_enhancement"
+    ],
+    "benchmarks": [
+      "WebArena",
+      "MiniWoB++",
+      "SWE-bench Lite",
+      "PubHealth",
+      "ARC-Challenge",
+      "SQuAD",
+      "ASQA"
+    ],
+    "optional_extensions": [
+      "JRC-Acquis"
+    ]
+  },
+  "platform_defaults": {
+    "objective": {
+      "alpha": 12.0,
+      "beta": 8.0,
+      "delta": 9.0,
+      "gamma": 1.0,
+      "stability_floor": 0.35,
+      "resource_budget": 100.0
+    },
+    "assessment": {
+      "feature_names": [
+        "task_priority",
+        "task_complexity",
+        "system_load",
+        "resource_pressure",
+        "skill_match",
+        "backlog_depth",
+        "collaboration_need",
+        "blocked_ratio"
+      ],
+      "coefficients": {
+        "stability": [0.24, -0.18, -0.16, -0.25, 0.31, -0.12, -0.08, -0.27],
+        "efficiency": [0.16, -0.05, -0.09, -0.13, 0.42, -0.18, 0.24, -0.14],
+        "resource": [0.05, 0.33, 0.29, 0.38, -0.21, 0.14, 0.22, 0.18]
+      },
+      "decision_penalties": {
+        "reject": 0.45,
+        "assist": 0.10,
+        "learn": 0.20
+      }
+    },
+    "evolution": {
+      "skill_learning_rate": 0.08,
+      "system_gain": 1.75,
+      "skill_decay": 0.015,
+      "decay_window": 3,
+      "elimination_threshold": -5.0,
+      "survival_reward": 1.2,
+      "max_learning_attempts": 3
+    },
+    "communication": {
+      "encoder_dim": 16,
+      "feature_grid_size": 4,
+      "confidence_threshold": 0.35,
+      "gaussian_smooth": true,
+      "gaussian_kernel_size": 3,
+      "gaussian_sigma": 1.0,
+      "prompt_downsample_ratio": 4,
+      "prompt_dropout": 0.1,
+      "prompt_bias": true,
+      "fusion_mode": "attention",
+      "fusion_heads": 4,
+      "fusion_dropout": 0.0
+    },
+    "model_backend": {
+      "provider": "transformers",
+      "model_name_or_path": "google/flan-t5-base",
+      "tokenizer_name_or_path": "google/flan-t5-base",
+      "max_prompt_tokens": 256,
+      "temperature": 0.2,
+      "top_p": 0.9,
+      "max_new_tokens": 96
+    }
+  },
+  "benchmarks": {
+    "webarena": {
+      "runtime": {
+        "max_steps": 48,
+        "resource_budget": 100.0,
+        "decomposition_depth": 3
+      },
+      "environment": {
+        "provider": "webarena",
+        "browser_name": "chromium",
+        "headless": true,
+        "task_timeout_ms": 60000,
+        "action_delay_ms": 800
+      },
+      "metrics": [
+        "success_rate",
+        "resource_usage"
+      ]
+    },
+    "miniwob": {
+      "runtime": {
+        "max_steps": 16,
+        "resource_budget": 60.0,
+        "decomposition_depth": 2
+      },
+      "environment": {
+        "provider": "miniwob",
+        "env_id": "browsergym/miniwob.click-test-v0",
+        "task_timeout_ms": 30000,
+        "action_delay_ms": 200
+      },
+      "metrics": [
+        "success_rate",
+        "resource_usage"
+      ]
+    },
+    "swebench_lite": {
+      "runtime": {
+        "max_steps": 18,
+        "resource_budget": 85.0,
+        "decomposition_depth": 3
+      },
+      "execution": {
+        "provider": "repository_issue_records",
+        "artifact_fields": ["problem_statement", "patch", "FAIL_TO_PASS", "PASS_TO_PASS"],
+        "test_command": "pytest -q"
+      },
+      "metrics": [
+        "issue_resolution_rate",
+        "resource_usage"
+      ]
+    },
+    "pubhealth": {
+      "training": {
+        "task_type": "sequence_classification",
+        "per_device_train_batch_size": 8,
+        "per_device_eval_batch_size": 8,
+        "learning_rate": 2e-5,
+        "num_train_epochs": 2.0
+      },
+      "metrics": [
+        "accuracy",
+        "resource_usage"
+      ]
+    },
+    "arc_challenge": {
+      "training": {
+        "task_type": "multiple_choice",
+        "per_device_train_batch_size": 8,
+        "per_device_eval_batch_size": 8,
+        "learning_rate": 2e-5,
+        "num_train_epochs": 2.0
+      },
+      "metrics": [
+        "accuracy",
+        "resource_usage"
+      ]
+    },
+    "squad": {
+      "training": {
+        "task_type": "extractive_qa",
+        "per_device_train_batch_size": 8,
+        "per_device_eval_batch_size": 8,
+        "learning_rate": 2e-5,
+        "num_train_epochs": 2.0
+      },
+      "metrics": [
+        "exact_match",
+        "f1",
+        "resource_usage"
+      ]
+    },
+    "asqa": {
+      "training": {
+        "task_type": "long_form_generation",
+        "per_device_train_batch_size": 2,
+        "per_device_eval_batch_size": 2,
+        "gradient_accumulation_steps": 4,
+        "learning_rate": 2e-5,
+        "num_train_epochs": 2.0
+      },
+      "metrics": [
+        "string_exact_match",
+        "rouge_l",
+        "mauve",
+        "resource_usage"
+      ]
+    }
+  },
+  "persistence": {
+    "experiment_artifacts": [
+      "config_snapshot.json",
+      "plan.json",
+      "summary.json",
+      "metrics.json",
+      "predictions.jsonl",
+      "task_traces.jsonl"
+    ],
+    "training_artifacts": [
+      "training_summary.json",
+      "training_history.jsonl",
+      "checkpoints.json"
+    ]
+  }
+}

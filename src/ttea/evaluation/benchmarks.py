@@ -182,6 +182,7 @@ class BenchmarkEvaluator:
         benchmark_rows = artifacts or []
         registry = {
             "success_rate": lambda: success_rate(results),
+            "issue_resolution_rate": lambda: self._benchmark_success_rate(results, benchmark_rows),
             "accuracy": lambda: squad_exact_match(predictions, reference_sets)
             if self.experiment_config.dataset.lower() == "squad"
             else categorical_accuracy(predictions, references),

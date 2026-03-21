@@ -257,6 +257,16 @@ class HFTrainingService:
                 f"to {task.metadata.get('target_language', 'target')}: "
                 f"{task.metadata.get('source_text', task.description)}"
             )
+        elif task.group.value == "software_engineering":
+            failing_tests = "; ".join(task.metadata.get("failing_tests", []))
+            regression_tests = "; ".join(task.metadata.get("regression_tests", []))
+            input_text = (
+                f"repo: {task.metadata.get('repo', '')} "
+                f"issue: {task.metadata.get('issue_text', task.description)} "
+                f"hints: {task.metadata.get('hints_text', '')} "
+                f"failing_tests: {failing_tests} "
+                f"regression_tests: {regression_tests}"
+            )
         elif task.dataset_name.lower() == "squad":
             input_text = f"question: {task.description} context: {task.metadata.get('context', '')}"
         elif task.metadata.get("choices"):

@@ -15,9 +15,8 @@
     "communication": true
   },
   "paper_targets": {
-    "avg_sr": 27.31,
+    "webarena_avg_success_rate": 27.31,
     "resource_usage": 65.34,
-    "bleu": 59.78,
-    "arc_c": 62.67
+    "arc_challenge_accuracy": 62.67
   }
 }

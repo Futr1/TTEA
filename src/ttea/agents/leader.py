@@ -86,6 +86,8 @@ class GlobalLeader(BaseAgent):
         if not selected_categories:
             if task.group == TaskGroup.WEB_NAVIGATION:
                 selected_categories = [category for category in available_categories if category in {"navigation", "verification"}]
+            elif task.group == TaskGroup.SOFTWARE_ENGINEERING:
+                selected_categories = [category for category in available_categories if category in {"development", "review", "testing"}]
             elif task.group == TaskGroup.TRANSLATION:
                 selected_categories = [category for category in available_categories if category in {"translation", "quality_assurance"}]
             else:

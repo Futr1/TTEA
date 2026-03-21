@@ -1,0 +1,8 @@
+{
+  "name": "SWE-bench Lite",
+  "task_group": "software_engineering",
+  "local_path": "data/datasets/swebench_lite",
+  "expected_files": ["test.jsonl", "test.json", "tasks.jsonl"],
+  "acquisition_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite",
+  "notes": "Store the issue records with problem statements, gold patches, and test metadata in JSON or JSONL format."
+}

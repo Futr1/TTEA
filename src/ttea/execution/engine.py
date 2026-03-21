@@ -294,6 +294,23 @@ class TaskExecutionEngine:
                 f"Assignments:\n{assignment_block}\n"
                 f"Source:\n{task.metadata.get('source_text', task.description)}"
             )
+        if task.group == TaskGroup.SOFTWARE_ENGINEERING:
+            failing_tests = "\n".join(f"- {item}" for item in task.metadata.get("failing_tests", []))
+            regression_tests = "\n".join(f"- {item}" for item in task.metadata.get("regression_tests", []))
+            return (
+                "You are operating inside a TTEA software engineering system.\n"
+                "Produce a patch-oriented response that resolves the issue with minimal changes.\n"
+                "A concise unified diff, patch plan, or file-by-file fix summary is acceptable.\n"
+                f"Assignments:\n{assignment_block}\n"
+                f"Repository: {task.metadata.get('repo', '')}\n"
+                f"Base commit: {task.metadata.get('base_commit', '')}\n"
+                f"Issue:\n{task.metadata.get('issue_text', task.description)}\n"
+                f"Hints:\n{task.metadata.get('hints_text', '')}\n"
+                f"Failing tests:\n{failing_tests or '- none provided'}\n"
+                f"Regression tests:\n{regression_tests or '- none provided'}\n"
+                f"Suggested command: {task.metadata.get('test_command', 'pytest -q')}\n"
+                "Response:"
+            )
         if task.group == TaskGroup.KNOWLEDGE_ENHANCEMENT:
             choices = task.metadata.get("choices", [])
             choice_block = ""
@@ -441,6 +458,8 @@ class TaskExecutionEngine:
     def _resolve_generation_limit(self, task: TaskSpec) -> int:
         if task.group == TaskGroup.TRANSLATION:
             return 192
+        if task.group == TaskGroup.SOFTWARE_ENGINEERING:
+            return 256
         if task.dataset_name.lower() == "asqa":
             return 256
         return self.system.platform_config.models.generation.get("max_new_tokens", 96)

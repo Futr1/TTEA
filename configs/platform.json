@@ -141,6 +141,64 @@
         }
       ]
     },
+    "software_engineering": {
+      "categories": [
+        {
+          "name": "development",
+          "leader_id": "leader_development",
+          "agents": [
+            {
+              "agent_id": "developer_backend",
+              "role": "specialist",
+              "skills": {
+                "development": 0.91,
+                "debugging": 0.86,
+                "planning": 0.78
+              }
+            },
+            {
+              "agent_id": "developer_generalist",
+              "role": "generalist",
+              "skills": {
+                "development": 0.79,
+                "refactoring": 0.74,
+                "coordination": 0.72
+              }
+            }
+          ]
+        },
+        {
+          "name": "review",
+          "leader_id": "leader_review",
+          "agents": [
+            {
+              "agent_id": "reviewer_static",
+              "role": "specialist",
+              "skills": {
+                "review": 0.88,
+                "verification": 0.83,
+                "consistency": 0.81
+              }
+            }
+          ]
+        },
+        {
+          "name": "testing",
+          "leader_id": "leader_testing",
+          "agents": [
+            {
+              "agent_id": "tester_pytest",
+              "role": "specialist",
+              "skills": {
+                "testing": 0.89,
+                "verification": 0.84,
+                "diagnostics": 0.82
+              }
+            }
+          ]
+        }
+      ]
+    },
     "translation": {
       "categories": [
         {
